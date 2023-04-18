@@ -1,11 +1,9 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue';
-</script>
-
 <template>
   <div id="app">
     <header>
-      <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+      <h2>count: {{ count }}</h2>
+
+      <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" @click="click" />
 
       <div class="wrapper">
         <HelloWorld msg="You did it!" />
@@ -20,6 +18,18 @@ import HelloWorld from './components/HelloWorld.vue';
     <router-view />
   </div>
 </template>
+
+<script setup>
+import { ref } from 'vue';
+import HelloWorld from './components/HelloWorld.vue';
+
+const count = ref(0);
+
+const click = () => {
+  console.log(11);
+  count.value += 1;
+};
+</script>
 
 <style scoped>
 header {
